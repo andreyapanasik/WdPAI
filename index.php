@@ -1,11 +1,10 @@
 <?php
 
-require 'Router.php';
+require 'Routing.php';
 
 $path = trim($_SERVER['REQUEST_URI'], '/');
+$path = parse_url($path, PHP_URL_PATH);
 
-Router::get('', 'DashboardController');
-Router::get('dashboard', 'DashboardController');
-Router::get('projects', 'ProjectsController');
-
-Router::run($path);
+Routing::get('', 'DefaultController');
+Routing::get('register', 'DefaultController');
+Routing::run($path);
