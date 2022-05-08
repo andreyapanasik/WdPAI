@@ -18,12 +18,3 @@ services:
       dockerfile: docker/php/Dockerfile
     volumes:
       - .:/app/
-
-  database:
-    build:
-      context: .
-      dockerfile: docker/postgresql/Dockerfile
-    ports:
-      - 5432:5432
-    volumes:
-      - .:/app/
