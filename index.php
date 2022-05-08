@@ -7,4 +7,5 @@ $path = parse_url($path, PHP_URL_PATH);
 
 Routing::get('', 'DefaultController');
 Routing::get('register', 'DefaultController');
+Routing::get('topics', 'TopicsController');
 Routing::run($path);

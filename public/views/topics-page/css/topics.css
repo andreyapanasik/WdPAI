@@ -1,0 +1,122 @@
+body {
+    font-family: 'Itim', cursive;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.Logo_container {
+    width: 341px;
+    margin: 0 auto;
+}
+
+.Topics {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 50px;
+    margin: 50px 0 50px 0;
+}
+
+.Topic {
+    position: relative;
+    width: 50%;
+    padding: 15px;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    margin: 0 auto;
+
+}
+
+.Topic_close {
+    position: absolute;
+    right: 2%;
+    top: 10%;
+}
+
+.Topic_theme {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+}
+
+.Topic_hr {
+    width: 50%;
+    margin: 10px auto 15px auto;
+}
+
+.Topic_content {
+    text-align: center;
+    font-size: 17px;
+    padding: 0 20px 0 20px;
+    margin: 0 0 15px 0;
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+
+    .container {
+        width: 90%;
+    }
+
+    .Topic {
+        width: 90%;
+        padding: 10px;
+    }
+
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .Topic_close {
+        right: 2%;
+        top: 6%;
+    }
+
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+    .Topic_close {
+        top: 4%;
+        right: 4%;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+    .Logo {
+        width: 150px;
+    }
+
+    .Logo_container {
+        width: 150px;
+        margin: 0 auto;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    .Topic {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .Topic_close {
+        right: 3%;
+        top: 6%;
+    }
+
+    .Topic_theme {
+        font-size: 25px;
+    }
+
+    .Topic_content {
+        font-size: 14px;
+    }
+
+}
