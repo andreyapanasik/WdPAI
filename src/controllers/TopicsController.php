@@ -16,7 +16,14 @@ class TopicsController extends AppController
 
     public function topics()
     {
-        $topics = $this->topicsRepository->getTopics();
+        session_start();
+        if (!$_SESSION['isLoggedIn']) {
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}");
+        }
+
+        $userID = $_SESSION['id'];
+        $topics = $this->topicsRepository->getTopics($userID);
 
         $this->render('topics-page', 'topics', ['topics' => $topics]);
     }

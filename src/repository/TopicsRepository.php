@@ -25,12 +25,12 @@ class TopicsRepository extends Repository
         $stmt->execute();
     }
 
-    public function getTopics(): ?array
+    public function getTopics(int $userID): ?array
     {
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM public.topics
+            SELECT * FROM public.topics WHERE user_id = :userID
         ');
-
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
         $stmt->execute();
 
         $topics = $stmt->fetchAll(PDO::FETCH_ASSOC);

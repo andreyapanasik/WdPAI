@@ -18,13 +18,13 @@
 <body>
 <div class="container">
     <div class="Logo_container">
-        <img class="Logo" src="public/views/topics-page/assets/logo.svg" alt="logo">
+        <img class="Logo" src="public/views/assets/logo.svg" alt="logo">
     </div>
 
     <main class="Topics">
         <?php foreach ($topics as $topic): ?>
             <section class="Topic">
-                <img class="Topic_close" src="public/views/topics-page/assets/close.svg" alt="close">
+                <img class="Topic_close" src="public/views/assets/close.svg" alt="close">
                 <h2 class="Topic_theme"><?= $topic->getLabel() ?></h2>
                 <hr class="Topic_hr">
                 <div class="Topic_content">

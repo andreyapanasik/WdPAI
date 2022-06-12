@@ -1,0 +1,76 @@
+body {
+    font-family: 'Itim', cursive;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.Login {
+    display: grid;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.Login_title {
+    text-align: center;
+    font-size: 40px;
+    margin: 50px 0;
+}
+
+.Login_label {
+    margin: 5px 0 10px 0;
+    font-size: 20px;
+}
+
+.Login_input {
+    background-color: rgba(0, 0, 0, 0.83);
+    color: white;
+    border-radius: 20px;
+    height: 40px;
+    padding: 0 15px;
+}
+
+.Login_btn {
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    width: 30%;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 100px auto 0 auto;
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+
+
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+    .Login {
+        width: 80%;
+    }
+
+    .Login_btn {
+        width: 40%;
+        font-size: 15px;
+        margin: 80px auto 0 auto;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+    .Login {
+        width: 90%;
+    }
+
+    .Login_btn {
+        width: 50%;
+        font-size: 15px;
+        margin: 80px auto 0 auto;
+    }
+}
