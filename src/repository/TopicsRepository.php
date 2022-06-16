@@ -25,12 +25,35 @@ class TopicsRepository extends Repository
         $stmt->execute();
     }
 
-    public function getTopics(int $userID): ?array
+    public function getTopic(int $topicID): ?Topic
     {
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM public.topics WHERE user_id = :userID
+            SELECT * FROM public.topics WHERE id = :topicID
         ');
-        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':topicID', $topicID, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $topic = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($topic) {
+
+            return new Topic(
+                $topic['id'],
+                $topic['user_id'],
+                $topic['label'],
+                $topic['description']
+            );
+        } else {
+
+            return null;
+        }
+    }
+
+    public function getTopics(): ?array
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM public.topics
+        ');
         $stmt->execute();
 
         $topics = $stmt->fetchAll(PDO::FETCH_ASSOC);

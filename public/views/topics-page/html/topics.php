@@ -24,7 +24,16 @@
     <main class="Topics">
         <?php foreach ($topics as $topic): ?>
             <section class="Topic">
-                <img class="Topic_close" src="public/views/assets/close.svg" alt="close">
+                <button class="Topic_close">
+                    <img src="public/views/assets/close.svg" alt="close">
+                </button>
+                <form action="deleteTopic" method="POST" class="Topic_close">
+                    <input class="Topic_input" name="ID" id="ID" type="hidden"
+                           value=<?= $topic->getID() ?> placeholder="Create your topic">
+                    <button class="Topic_close" type="submit">
+                        <img src="public/views/assets/close.svg" class="Topic_close_img" alt="close">
+                    </button>
+                </form>
                 <h2 class="Topic_theme"><?= $topic->getLabel() ?></h2>
                 <hr class="Topic_hr">
                 <div class="Topic_content">
@@ -33,6 +42,13 @@
             </section>
         <?php endforeach; ?>
     </main>
+
+    <form action="createTopic" method="POST" class="Topic_create">
+        <input class="Topic_input" name="title" id="title" type="text" placeholder="Create your topic">
+        <hr class="Topic_hr">
+        <input class="Topic_input_descr" name="description" id="description" type="text" placeholder="Add description">
+        <button class="Topic_btn" type="submit">Create topic</button>
+    </form>
 </div>
 </body>
 </html>

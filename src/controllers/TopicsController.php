@@ -27,4 +27,43 @@ class TopicsController extends AppController
 
         $this->render('topics-page', 'topics', ['topics' => $topics]);
     }
+
+    public function createTopic()
+    {
+        session_start();
+
+        $userID = $_SESSION['id'];
+        $topics = $this->topicsRepository->getTopics();
+        if (!$this->isPost()) {
+
+            return $this->render('topics-page', 'topics', ['topics' => $topics]);
+        }
+
+        $title = $_POST["title"];
+        $description = $_POST['description'];
+
+        $this->topicsRepository->addTopic($userID, $title, $description);
+        $topics = $this->topicsRepository->getTopics($userID);
+
+        $this->render('topics-page', 'topics', ['topics' => $topics]);
+    }
+
+    public function deleteTopic()
+    {
+        session_start();
+
+        $topics = $this->topicsRepository->getTopics();
+        if (!$this->isPost()) {
+
+            return $this->render('topics-page', 'topics', ['topics' => $topics]);
+        }
+        $topicID = $_POST["ID"];
+        if ($this->topicsRepository->getTopic($topicID)) {
+
+            $this->topicsRepository->removeTopic($topicID);
+        }
+
+        $topics = $this->topicsRepository->getTopics();
+        $this->render('topics-page', 'topics', ['topics' => $topics]);
+    }
 }
