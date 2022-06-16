@@ -23,7 +23,7 @@ class TopicsController extends AppController
         }
 
         $userID = $_SESSION['id'];
-        $topics = $this->topicsRepository->getTopics($userID);
+        $topics = $this->topicsRepository->getTopics();
 
         $this->render('topics-page', 'topics', ['topics' => $topics]);
     }

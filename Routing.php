@@ -3,6 +3,7 @@
 require_once 'src/controllers/DefaultController.php';
 require_once 'src/controllers/TopicsController.php';
 require_once 'src/controllers/SecurityController.php';
+require_once 'src/controllers/TopicController.php';
 
 class Routing
 {

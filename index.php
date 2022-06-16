@@ -11,4 +11,5 @@ Routing::get('createTopic', 'TopicsController');
 Routing::get('deleteTopic', 'TopicsController');
 Routing::get('register', 'DefaultController');
 Routing::get('topics', 'TopicsController');
+Routing::get('comments', 'TopicController');
 Routing::run($path);
