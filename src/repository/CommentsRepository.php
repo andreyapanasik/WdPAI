@@ -5,13 +5,13 @@ require_once __DIR__ . '/../models/Comment.php';
 
 class CommentsRepository extends Repository
 {
-    public function addComment(int $topicId, int $userId, string $content)
+    public function addComment(int $topicId, string $username, string $content)
     {
         $stmt = $this->database->connect()->prepare('
-            INSERT INTO public.comments (topic_id, user_id, content) VALUES (:topicId, :userId, :content)
+            INSERT INTO public.comments (topic_id, username, content) VALUES (:topicId, :username, :content)
         ');
         $stmt->bindParam(':topicId', $topicId, PDO::PARAM_INT);
-        $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
+        $stmt->bindParam(':username', $username, PDO::PARAM_STR);
         $stmt->bindParam(':content', $content, PDO::PARAM_STR);
         $stmt->execute();
     }
@@ -31,18 +31,29 @@ class CommentsRepository extends Repository
                 $output[] = new Comment(
                     $comment['id'],
                     $comment['topic_id'],
-                    $comment['user_id'],
-                    $comment['content']
+                    $comment['username'],
+                    $comment['content'],
+                    date("Y-m-d H:i", strtotime($comment['date']))
                 );
             }
         } else {
             $output[] = new Comment(
                 null,
+                $topicID,
                 null,
-                null,
-                "No comments yet"
+                "No comments yet",
+                null
             );
         }
         return $output;
+    }
+
+    public function deleteComments(int $topicID)
+    {
+        $stmt = $this->database->connect()->prepare('
+            DELETE FROM public.comments WHERE topic_id = :topicID
+        ');
+        $stmt->bindParam(':topicID', $topicID, PDO::PARAM_INT);
+        $stmt->execute();
     }
 }

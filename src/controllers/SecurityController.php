@@ -57,7 +57,7 @@ class SecurityController extends AppController
         header("Location: {$url}/topics");
     }
 
-    public function signup()
+    public function register()
     {
         session_start();
         if ($_SESSION['isLoggedIn']) {
@@ -66,29 +66,29 @@ class SecurityController extends AppController
         }
 
         if (!$this->isPost()) {
-            return $this->render('signup');
+            return $this->render('page-register', 'register');
         }
 
         $group_id = $_POST['password'] === "admin" ? 1 : 2;
         $username = $_POST["username"];
         $email = $_POST["email"];
-        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $password = $_POST['password'];
 
         if (!$username || !$email || !$password) {
-            return $this->render('signup', ['messages' => ['Please fill in blanks!']]);
+            return $this->render('page-register', 'register', ['messages' => ['Please fill in the blanks!']]);
         }
 
         $user = $this->userRepository->getUser('email', $email);
         if ($user) {
-            return $this->render('signup', ['messages' => ['Given email already exists!']]);
+            return $this->render('page-register', 'register', ['messages' => ['Given email already exists!']]);
         }
 
         $user = $this->userRepository->getUser('username', $username);
         if ($user) {
-            return $this->render('signup', ['messages' => ['Given username already exists!']]);
+            return $this->render('page-register', 'register', ['messages' => ['Given username already exists!']]);
         }
 
         $this->userRepository->setUser($group_id, $username, $email, $password);
-        $this->render('login', ['messages' => ['You have registered successfully, please log in']]);
+        $this->render('page-login', 'login', ['messages' => ['You have registered successfully, please log in']]);
     }
 }

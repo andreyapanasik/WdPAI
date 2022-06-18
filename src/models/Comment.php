@@ -4,15 +4,17 @@ class Comment
 {
     private $id;
     private $topic_id;
-    private $user_id;
+    private $username;
     private $content;
+    private $date;
 
-    public function __construct($id, $topic_id, $user_id, $content)
+    public function __construct($id, $topic_id, $username, $content, $date)
     {
         $this->id = $id;
         $this->topic_id = $topic_id;
-        $this->user_id = $user_id;
+        $this->username = $username;
         $this->content = $content;
+        $this->date = $date;
     }
 
     public function getId()
@@ -35,14 +37,14 @@ class Comment
         $this->topic_id = $topic_id;
     }
 
-    public function getUserId()
+    public function getUsername()
     {
-        return $this->user_id;
+        return $this->username;
     }
 
-    public function setUserId($user_id): void
+    public function setUsername($username): void
     {
-        $this->user_id = $user_id;
+        $this->username = $username;
     }
 
     public function getContent()
@@ -53,5 +55,15 @@ class Comment
     public function setContent($content): void
     {
         $this->content = $content;
+    }
+
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    public function setDate($date): void
+    {
+        $this->date = $date;
     }
 }

@@ -27,9 +27,14 @@
                 <button class="Topic_close">
                     <img src="public/views/assets/close.svg" alt="close">
                 </button>
+                <form action="comments" method="POST">
+                    <input name="topicID" id="topicID" type="hidden"
+                           value=<?= $topic->getID() ?>>
+                    <button class="Topic_choose" type="submit">Go to topic</button>
+                </form>
                 <form action="deleteTopic" method="POST" class="Topic_close">
-                    <input class="Topic_input" name="ID" id="ID" type="hidden"
-                           value=<?= $topic->getID() ?> placeholder="Create your topic">
+                    <input class="Topic_input" name="topicID" id="topicID" type="hidden"
+                           value=<?= $topic->getID() ?>>
                     <button class="Topic_close" type="submit">
                         <img src="public/views/assets/close.svg" class="Topic_close_img" alt="close">
                     </button>

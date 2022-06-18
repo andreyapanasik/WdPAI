@@ -54,4 +54,10 @@ class Topic
     {
         $this->description = $description;
     }
+
+    public function __toString(): string
+    {
+        return "Topic [ id = " . $this->id . ",\nuser_id = " . $this->user_id . ",\nlabel = " . $this->label . ",\ndescription = " . $this->description . " ]";
+    }
+
 }

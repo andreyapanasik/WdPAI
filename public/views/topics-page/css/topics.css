@@ -28,7 +28,11 @@ body {
     color: white;
     border-radius: 20px;
     margin: 0 auto;
+    transition: 0.5s all;
+}
 
+.Topic:hover {
+    transform: scale(1.05);
 }
 
 .Topic_close {
@@ -38,10 +42,16 @@ body {
     background-color: unset;
     border: none;
     cursor: pointer;
+    z-index: 9999;
 }
+
 
 .Topic_close_img {
     cursor: pointer;
+}
+
+.Topic_close_img:hover {
+    transform: scale(1.2);
 }
 
 .Topic_theme {
@@ -110,6 +120,16 @@ body {
 
 }
 
+.Topic_choose {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 20px;
+    opacity: 0;
+}
+
 @media (min-width: 1025px) and (max-width: 1200px) {
 
     .container {
@@ -135,6 +155,10 @@ body {
         top: 6%;
     }
 
+    .Topic_theme {
+        width: 100%;
+    }
+
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
@@ -144,6 +168,9 @@ body {
         right: 4%;
     }
 
+    .Topic_theme {
+        width: 100%;
+    }
 
     .Topic_input {
         font-size: 8px;
@@ -189,6 +216,7 @@ body {
 
     .Topic_theme {
         font-size: 25px;
+        width: 100%;
     }
 
     .Topic_content {

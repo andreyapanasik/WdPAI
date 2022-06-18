@@ -20,26 +20,26 @@
     <div class="Logo_container">
         <img class="Logo" src="public/views/assets/logo.svg" alt="logo">
     </div>
-    <?php foreach ($comments as $comment): ?>
-        <div class="Topic">
-            <h2 class="Topic_name">Topic</h2>
-            <hr class="Topic_hr">
+    <div class="Topic">
+        <h2 class="Topic_name"><?= $topicLabel ?></h2>
+        <hr class="Topic_hr">
+        <?php foreach ($comments as $comment): ?>
             <div class="Topic_feedback">
-                <h5 class="Topic_feedback_username">"Username"</h5>
-                <h5 class="Topic_feedback_data">DD-MM-YYYY</h5>
+                <h5 class="Topic_feedback_username"><?= $comment->getUsername() ?></h5>
+                <h5 class="Topic_feedback_data"><?= $comment->getDate() ?></h5>
                 <p class="Topic_feedback_comment"><?= $comment->getContent() ?></p>
             </div>
-
-            <form action="" class="Topic_create_feedback">
-                <h5 class="Topic_create_username">"Username"</h5>
-                <h5 class="Topic_create_data">DD-MM-YYYY</h5>
-                <input class="Topic_input" type="text" placeholder="Add your comment">
-                <div class="Topic_btn_container">
-                    <button class="Topic_btn" type="submit">Add comment</button>
-                </div>
-            </form>
-        </div>
-    <?php endforeach; ?>
+        <?php endforeach; ?>
+        <form action="addComment" method="POST" class="Topic_create_feedback">
+            <h5 class="Topic_create_username"></h5>
+            <h5 class="Topic_create_data"></h5>
+            <input class="Topic_input" name="topicID" id="topicID" type="hidden" value=<?= $topicID ?>>
+            <input class="Topic_input" name="content" id="content" type="text" placeholder="Add your comment">
+            <div class="Topic_btn_container">
+                <button class="Topic_btn" type="submit">Add comment</button>
+            </div>
+        </form>
+    </div>
 </div>
 </body>
 </html>

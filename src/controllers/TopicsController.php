@@ -7,11 +7,13 @@ require_once __DIR__ . '/../repository/TopicsRepository.php';
 class TopicsController extends AppController
 {
     private TopicsRepository $topicsRepository;
+    private CommentsRepository $commentsRepository;
 
     public function __construct()
     {
         parent::__construct();
         $this->topicsRepository = new TopicsRepository();
+        $this->commentsRepository = new CommentsRepository();
     }
 
     public function topics()
@@ -57,9 +59,10 @@ class TopicsController extends AppController
 
             return $this->render('topics-page', 'topics', ['topics' => $topics]);
         }
-        $topicID = $_POST["ID"];
+        $topicID = $_POST["topicID"];
         if ($this->topicsRepository->getTopic($topicID)) {
 
+            $this->commentsRepository->deleteComments($topicID);
             $this->topicsRepository->removeTopic($topicID);
         }
 

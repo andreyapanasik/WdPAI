@@ -14,6 +14,6 @@ class DefaultController extends AppController {
     }
 
     public function register() {
-        $this->render('page-login', 'register');
+        $this->render('page-register', 'register');
     }
 }

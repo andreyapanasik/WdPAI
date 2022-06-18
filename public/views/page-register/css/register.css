@@ -3,24 +3,26 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
-.Login {
+
+.Register {
     display: grid;
     width: 50%;
     margin: 0 auto;
 }
 
-.Login_title {
+.Register_title {
     text-align: center;
     font-size: 40px;
     margin: 50px 0;
 }
 
-.Login_label {
+.Register_label {
     margin: 5px 0 10px 0;
     font-size: 20px;
 }
 
-.Login_input {
+.Register_input {
+    width: 90%;
     background-color: rgba(0, 0, 0, 0.83);
     color: white;
     border-radius: 20px;
@@ -28,7 +30,7 @@ body {
     padding: 0 15px;
 }
 
-.Login_btn {
+.Register_btn {
     background-color: black;
     color: white;
     border-radius: 20px;
@@ -39,13 +41,14 @@ body {
     margin: 100px auto 0 auto;
 }
 
+
 @media (min-width: 481px) and (max-width: 768px) {
 
-    .Login {
+    .Register {
         width: 80%;
     }
 
-    .Login_btn {
+    .Register_btn {
         width: 40%;
         font-size: 15px;
         margin: 80px auto 0 auto;
@@ -54,11 +57,11 @@ body {
 
 @media (min-width: 320px) and (max-width: 480px) {
 
-    .Login {
+    .Register {
         width: 90%;
     }
 
-    .Login_btn {
+    .Register_btn {
         width: 50%;
         font-size: 15px;
         margin: 80px auto 0 auto;

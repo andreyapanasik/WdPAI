@@ -33,7 +33,7 @@ class TopicsRepository extends Repository
         $stmt->bindParam(':topicID', $topicID, PDO::PARAM_INT);
         $stmt->execute();
 
-        $topic = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $topic = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($topic) {
 
@@ -69,8 +69,8 @@ class TopicsRepository extends Repository
             }
         } else {
             $output[] = new Topic(
-                null,
-                null,
+                122,
+                1,
                 "No topics yet",
                 ""
             );
