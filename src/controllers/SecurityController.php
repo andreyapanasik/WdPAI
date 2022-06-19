@@ -26,24 +26,24 @@ class SecurityController extends AppController
         }
 
         if (!$this->isPost()) {
-            return $this->render('page-login', 'login');
+            return $this->render('login-page', 'login');
         }
 
         $username = $_POST["username"];
         $password = $_POST['password'];
 
         if (!$username || !$password) {
-            return $this->render('page-login', 'login', ['messages' => ['Please fill in blanks!']]);
+            return $this->render('login-page', 'login', ['messages' => ['Please fill in blanks!']]);
         }
 
         $user = $this->userRepository->getUser('username', $username);
         if (!$user) {
-            return $this->render('page-login', 'login', ['messages' => ['User with this username does not exist!']]);
+            return $this->render('login-page', 'login', ['messages' => ['User with this username does not exist!']]);
         }
 
         $status = $password === $user->getPassword();
         if (!$status) {
-            return $this->render('page-login', 'login', ['messages' => ['Wrong password!']]);
+            return $this->render('login-page', 'login', ['messages' => ['Wrong password!']]);
         }
 
         $_SESSION['id'] = $user->getId();
@@ -66,7 +66,7 @@ class SecurityController extends AppController
         }
 
         if (!$this->isPost()) {
-            return $this->render('page-register', 'register');
+            return $this->render('register-page', 'register');
         }
 
         $group_id = $_POST['password'] === "admin" ? 1 : 2;
@@ -75,20 +75,20 @@ class SecurityController extends AppController
         $password = $_POST['password'];
 
         if (!$username || !$email || !$password) {
-            return $this->render('page-register', 'register', ['messages' => ['Please fill in the blanks!']]);
+            return $this->render('register-page', 'register', ['messages' => ['Please fill in the blanks!']]);
         }
 
         $user = $this->userRepository->getUser('email', $email);
         if ($user) {
-            return $this->render('page-register', 'register', ['messages' => ['Given email already exists!']]);
+            return $this->render('register-page', 'register', ['messages' => ['Given email already exists!']]);
         }
 
         $user = $this->userRepository->getUser('username', $username);
         if ($user) {
-            return $this->render('page-register', 'register', ['messages' => ['Given username already exists!']]);
+            return $this->render('register-page', 'register', ['messages' => ['Given username already exists!']]);
         }
 
         $this->userRepository->setUser($group_id, $username, $email, $password);
-        $this->render('page-login', 'login', ['messages' => ['You have registered successfully, please log in']]);
+        $this->render('login-page', 'login', ['messages' => ['You have registered successfully, please log in']]);
     }
 }

@@ -13,7 +13,7 @@
           rel="stylesheet">
 
     <!-- STYLES -->
-    <link rel="stylesheet" href="public/views/page-login/css/login.css">
+    <link rel="stylesheet" href="public/views/login-page/css/login.css">
 </head>
 <body>
 <h2 class="Login_title">Login</h2>

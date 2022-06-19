@@ -10,10 +10,10 @@ class DefaultController extends AppController {
             $url = "http://$_SERVER[HTTP_HOST]";
             header("Location: {$url}/topics");
         }
-        $this->render('page-login', 'login');
+        $this->render('login-page', 'login');
     }
 
     public function register() {
-        $this->render('page-register', 'register');
+        $this->render('register-page', 'register');
     }
 }

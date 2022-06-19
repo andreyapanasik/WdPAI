@@ -13,7 +13,7 @@
           rel="stylesheet">
 
     <!-- STYLES -->
-    <link rel="stylesheet" href="public/views/page-register/css/register.css">
+    <link rel="stylesheet" href="public/views/register-page/css/register.css">
 </head>
 <body>
 <h2 class="Register_title">Register</h2>
