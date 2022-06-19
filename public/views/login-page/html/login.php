@@ -33,6 +33,7 @@
     <input type="password" name="password" id="password" class="Login_input" placeholder="Type password">
 
     <button type="submit" class="Login_btn">Login</button>
+    <a href="http://localhost:8080/register" class="Login_register">Register</a>
 </form>
 </body>
 </html>
